@@ -75,11 +75,8 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="max-h-40 overflow-hidden rounded flex-1 bg-gray-200">
-                                            <div class="flex-1 px-2 py-2 max-h-40 overflow-hidden overflow-y-auto">
-                                                <p class="whitespace-normal text-wrap break-words">{{$demanda->Tramites->last()->complemento}}</p>
-                                            </div>
-                                        </div>
+                                        <textarea readonly class="w-full bg-gray-300 rounded" rows="6">{{$demanda->Tramites->last()->complemento}}</textarea>
+
                                         <div class="flex justify-between mt-1">
                                             <div class="flex">
                                                 <img src="{{asset('img'.DIRECTORY_SEPARATOR.'calendar.svg')}}" alt="user" class="h-5 mr-1">

@@ -111,7 +111,7 @@
                                         <p class="underline">{{date('d/m/Y H:i', strToTime($tramite->data_tramite))}}</p>
                                     </div>       
 
-                                    @if ((Auth::id() == $tramite->user_id_tramitou || Auth::id() == $tramite->user_id_tramitado) && $demanda->situacao == 0)
+                                    @if (Auth::id() == $tramite->user_id_tramitou && $demanda->situacao == 0)
                                         <form method="POST" action="{{route('tramites.destroy', $tramite->id)}}">
                                             @csrf
                                             @method('DELETE')
@@ -123,8 +123,8 @@
                                 </div>
 
                                 
-                                <div class="w-full">
-                                    <p class="m-4 my-1 mb-2 p-2 rounded whitespace-normal text-wrap break-words bg-gray-300">{{$tramite->complemento}}</p>
+                                <div class="flex flex-1">
+                                    <textarea readonly class="m-4 my-1 mb-2 p-2 flex-1 h-full w-full rounded bg-gray-300" rows="10">{{$tramite->complemento}}</textarea>
                                 </div>
 
                                 <div class="flex justify-between items-center mb-2">
@@ -135,7 +135,7 @@
                                         @endif
                                     </div>
 
-                                    @if ((Auth::id() == $tramite->user_id_tramitou || Auth::id() == $tramite->user_id_tramitado) && $demanda->situacao == 0)
+                                    @if (Auth::id() == $tramite->user_id_tramitou && $demanda->situacao == 0)
                                         <div class="flex mr-4">
                                             <a href="{{route('tramites.edit', $tramite->id)}}">
                                                 <div class="border p-1 rounded border-black cursor-pointer flex hover:bg-gray-200">
